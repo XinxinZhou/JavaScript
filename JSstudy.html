@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- http://www.aaadream.com/forum.php-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <h1> Hello, JS</h1>
+  <script type="text/javascript">
+    var x;
+	x=1;
+	var points = [
+	  {x:0, y:11},
+	  {x:1, y:22}
+	];
+	var data = {
+	  att1:[[1,2],[11,22]],
+	  att2:[[3,4],[33,44]]
+	};
+	var obj6={y:9998};
+	 x = 99;  //debugger;
+	function output(){
+	  document.getElementById('xx').innerHTML = x; //debugger;
+	}
+  </script>
+  <script>
+    function moveon(){
+	  var answer = confirm("Are you ready?");
+	  if(answer) window.location="http://google.ca";
+	}
+  </script>
+  <script>
+    function debug(msg) {
+	  var log = document.getElementById("debuglog");
+	  if(!log) {
+	  log = document.createElement("div");
+	  log.id = "debuglog";
+	  log.innerHTML = "<h1>Debug Log</h1>";
+	  document.body.appendChild(log);
+	  }
+	  var pre = document.createElement("pre");
+	  var text = document.createTextNode(msg);
+	  pre.appendChild(text);
+	  log.appendChild(pre);
+	}
+	function decimalTest() {
+	var x1=(13-12)/10;
+	var y=(12-11)/10;
+	document.getElementById("xx").innerHTML =  "two'nlines" ;
+	}
+	var x2= {y:1};
+	/*
+	function test(o) {
+	  var i = 0;
+	  if (typeof o == "object") {
+	    var j = 0; 
+		for (var k = 0; k < 10; k++) {
+		  console.log(k);
+	    }
+	    console.log(k + "hello");
+	  }
+	  console.log(j);
+    }
+	function f() {
+	  console.log(x.y);
+	}
+	f();*/
+	var funcs ={
+		functions : new Array(3),
+		
+	};
+	funcs.functions[0]=function prin() {
+	  console.log("hello,functions[0]");
+	};
+	funcs.functions[1] = function prin1(){console.log("hello,functions[1]");};
+	funcs.functions[0]();
+	funcs.functions[1]();
+	console.log("hello,functions[0]end");
+	var x3= '2'+1;
+	console.log(1===1);
+	
+	var globalX = "Gx";
+	function lx() {
+	var globalX = "local";
+		console.log(globalX);    //debugger;
+		return 1;
+	}
+	lx();
+	console.log(lx(),globalX);
+	var o1 = new Object();
+	o1.x = 1;
+	var o2 = Object.create(o1);
+	o1.x=2;
+	delete o1.x;
+	console.log(o2.x);
+	o1.x2 = 2;
+	o1.x3 = 3;
+	o1.x4 = 4;
+	function extend(o,p) {
+		for (prop in p) {
+			o.prop = p.prop;
+		}
+	}
+	extend (o2,o1);
+	console.log(o2.x4);
+	var y =0;
+	var o3 = {
+		x:1.0,
+		y:1.0,
+		get gs() {return Math.sqrt(this.x*this.x + y*this.y);},
+		set gs(newvalue) {
+			var oldvalue = Math.sqrt(this.x*this.x + this.y*this.y);
+			var ratio = newvalue/oldvalue;
+			this.x *= ratio;
+			this.y *= ratio;
+		},
+	};
+	s = JSON.stringify(o3);
+	o3.gs = 4;
+	console.log(o3.gs);
+	console.log(Object.getOwnPropertyDescriptor(o3,"x"));
+	console.log(Object.keys(o3));
+	//Object.freeze(o3);
+	console.log(Object.isFrozen(o3));
+	o3.gs = 99;
+	console.log(o3.gs);
+	p = JSON.parse(s);
+	console.log(s);
+	var array1 = [];
+	for ( i=0; i<10; i++)
+	{
+		array1[i] = i;
+		console.log(array1[i]);
+	}
+	var sum = 0;
+	array1.forEach(function(x){
+		sum += x;
+		}
+	);
+	console.log(sum);
+	var a = [1,2,3,4,5];
+	console.log(a.shift());
+	console.log(a.unshift(9,99));
+	console.log(a);
+	function arg() {
+		var str =arguments.length;
+		for(i = 0; i<str; i++)
+			console.log(arguments[i]);
+	};
+	arg(1,2,3,4,'a,b,c');
+  </script>
+</head>
+<body>
+  <div id="xx">hello</div>
+  <button onclick="output()">ExecuteJS</button>
+<!--  <button onclick="moveon()">JS2</button> -->
+  <button onclick="decimalTest()">ExecuteJS3</button>
+  <br>
+  <a href="javascript:void window.open('http://www.sina.com.cn');">New Window</a>
+ 
+</body>
+</html>
